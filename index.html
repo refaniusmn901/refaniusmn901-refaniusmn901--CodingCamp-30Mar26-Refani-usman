@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense &amp; Budget Visualizer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-container">
+  <header>
+    <h1>Expense &amp; Budget Visualizer</h1>
+    <p class="balance-label">Total Balance</p>
+    <p id="balance">$0.00</p>
+  </header>
+
+  <main>
+    <!-- Expense Form -->
+    <section class="form-section">
+      <h2>Add Transaction</h2>
+      <form id="expense-form" novalidate>
+        <div class="form-group">
+          <label for="item-name">Item Name</label>
+          <input type="text" id="item-name" name="item-name" placeholder="e.g. Coffee" />
+          <p class="error-msg" id="name-error" aria-live="polite"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount ($)</label>
+          <input type="number" id="amount" name="amount" placeholder="0.00" min="0.01" step="0.01" />
+          <p class="error-msg" id="amount-error" aria-live="polite"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="">-- Select category --</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+          <p class="error-msg" id="category-error" aria-live="polite"></p>
+        </div>
+
+        <button type="submit">Add Transaction</button>
+      </form>
+    </section>
+
+    <!-- Custom Category Form -->
+    <section class="custom-category-section">
+      <h2>Custom Categories</h2>
+      <form id="custom-category-form" novalidate>
+        <div class="form-group">
+          <label for="custom-category-name">Category Name</label>
+          <input type="text" id="custom-category-name" name="custom-category-name" placeholder="e.g. Health" />
+          <p class="error-msg" id="custom-category-error" aria-live="polite"></p>
+        </div>
+        <button type="submit">Add Category</button>
+      </form>
+      <ul id="custom-category-list" class="custom-cat-list"></ul>
+    </section>
+
+    <!-- Sort Control -->
+    <section class="sort-section">
+      <h2>Sort Transactions</h2>
+      <div class="form-group">
+        <label for="sort-control">Sort By</label>
+        <select id="sort-control" name="sort-control">
+          <option value="default">Default (insertion order)</option>
+          <option value="amount-asc">Amount: Low to High</option>
+          <option value="amount-desc">Amount: High to Low</option>
+          <option value="category-asc">Category: A–Z</option>
+          <option value="category-desc">Category: Z–A</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Transaction List -->
+    <section class="list-section">
+      <h2>Transactions</h2>
+      <div class="list-container">
+        <ul id="transaction-list"></ul>
+        <p class="empty-state" id="list-empty">No transactions logged yet.</p>
+      </div>
+    </section>
+
+    <!-- Chart -->
+    <section class="chart-section">
+      <h2>Spending by Category</h2>
+      <canvas id="spending-chart" width="300" height="300"></canvas>
+      <p class="empty-state" id="chart-empty">Add transactions to see the chart.</p>
+    </section>
+
+    <!-- Monthly Summary -->
+    <section class="monthly-summary-section">
+      <h2>Monthly Summary</h2>
+      <div class="form-group">
+        <label for="month-selector">Select Month</label>
+        <input type="month" id="month-selector" name="month-selector" />
+      </div>
+      <div id="monthly-totals" class="monthly-totals"></div>
+      <p class="empty-state" id="monthly-empty">No spending data for this period.</p>
+    </section>
+  </main>
+
+  </div> <!-- /.app-container -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f4f6f9;
+  color: #222;
+}
+
+/* ── Container ── */
+.app-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1.5rem 1rem;
+}
+
+/* ── Header  ── */
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+}
+
+/* ── BALANCE CARD  ── */
+.balance-display {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.balance-label {
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#balance {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-top: 0.3rem;
+}
+
+/* ── Layout ── */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-section {
+  grid-column: 1 / -1;
+}
+
+.list-section {
+  grid-column: 1;
+}
+
+.chart-section {
+  grid-column: 2;
+}
+
+/* ── Cards ── */
+.form-section,
+.list-section,
+.chart-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* ── Form ── */
+#expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.55rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #fff;
+}
+
+/* tombol full width seperti gambar */
+#expense-form button {
+  width: 100%;
+  padding: 0.6rem;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#expense-form button:hover {
+  background: #2563eb;
+}
+
+/* ── Transaction list ── */
+#transaction-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.transaction-name {
+  font-weight: 600;
+}
+
+.transaction-amount {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* ── Chart ── */
+.chart-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#spending-chart {
+  max-width: 300px;
+}
+
+/* ── Empty ── */
+.empty-state {
+  text-align: center;
+  color: #aaa;
+  padding: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .form-section,
+  .list-section,
+  .chart-section {
+    grid-column: 1;
+  }
+}
+
+/* ── Custom Category Form ── */
+.custom-category-section {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#custom-category-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+#custom-category-form button {
+  width: 100%;
+  padding: 0.6rem;
+  background: #10b981;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#custom-category-form button:hover {
+  background: #059669;
+}
+
+/* ── Error messages ── */
+.error-msg {
+  font-size: 0.8rem;
+  color: #ef4444;
+  min-height: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+/* ── Monthly Summary ── */
+.monthly-summary-section {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.monthly-summary-section .form-group {
+  margin-bottom: 1rem;
+}
+
+.monthly-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.monthly-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.monthly-category {
+  font-weight: 600;
+  color: #444;
+}
+
+.monthly-amount {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* ── Sort Control ── */
+.sort-section {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sort-section .form-group {
+  max-width: 300px;
+}
+
+/* ── Custom Category List ── */
+.custom-cat-list {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.custom-cat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.custom-cat-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.custom-cat-label {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.custom-cat-delete-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
